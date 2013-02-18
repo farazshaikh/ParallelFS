@@ -4,7 +4,7 @@ Sample "4 Data Server 1 Meta data server 4DS1MDS" Cluster Setup.
 Create a 4DS1MDS cluster on the same machine (127.0.0.1), i.e. with servers
 running on the same host.
 
-The cluster topology is definded in a file system config i.e. fsconfig file.
+The cluster topology is defined in a file system config i.e. fsconfig file.
 The fsconfig file for this sample cluster is in src/sampleconfig/samplefsconfig
 
 
@@ -42,7 +42,7 @@ data servers will store data shards
    HFS_ERROR:admin/mkfs_hercules.c:280:
    Host name mismatch error You provided localhost.localdomain  HFS matched it to "ubuntu"
 
-   Resolution: the samefsconfig has the hostname embedded as
+   Resolution: the samplefsconfig has the hostname embedded as
    "localhost.localdomain", while your machine's hostname was
    "ubuntu".
    - Either change sample samplefsconfig and replace
@@ -226,4 +226,4 @@ See the debug.log file :), location of the debug files comes from the fsconfig f
 3. Check the client config log /clientlog in this case.
 4. GDB and fix otherwise.
 5. Send patch.
-5. Everything fils tar up and send "/hercules" folder to fshaikh@cs.cmu.edu
+5. Everything fails tar up and send "/hercules" folder to fshaikh@cs.cmu.edu
