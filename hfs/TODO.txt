@@ -1,0 +1,9 @@
+Read bug, size < extent over copy
+
+Central config. 
+
+Handle manager.
+
+Truncate the file 0_CREATE and exist
+
+Bytes Read off bug case of read only 1 sector.

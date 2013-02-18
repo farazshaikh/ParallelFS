@@ -1,0 +1,9 @@
+<MDS>
+mdscount=1
+ubuntu	127.0.0.1	10000	TCP	/hercules/ds0	/hercules/mds0.log
+<DS>
+dscount=4
+ubuntu	127.0.0.1	8090	TCP	/hercules/ds0	/hercules/ds0.log
+ubuntu	127.0.0.1	8091	TCP	/hercules/ds1	/hercules/ds1.log
+ubuntu	127.0.0.1	8092	TCP	/hercules/ds2	/hercules/ds2.log
+ubuntu	127.0.0.1	8093	TCP	/hercules/ds3	/hercules/ds3.log

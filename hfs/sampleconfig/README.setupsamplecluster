@@ -1,0 +1,229 @@
+Sample "4 Data Server 1 Meta data server 4DS1MDS" Cluster Setup.
+---------------------------------------------------------------
+
+Create a 4DS1MDS cluster on the same machine (127.0.0.1), i.e. with servers
+running on the same host.
+
+The cluster topology is definded in a file system config i.e. fsconfig file.
+The fsconfig file for this sample cluster is in src/sampleconfig/samplefsconfig
+
+
+Data Server setup
+.................
+0. Read and understand the file src/sampleconfig/samplefsconfig
+   Each line describe a node in the cluster in the following format
+   <hostname>    <ip>  <port>   <protocol>  <datadirectory>   <logfile>
+
+   Entries are divided in 2 sections
+   <MDS> meta data section describes meta data servers.
+   <DS>  data section describes data servers.
+
+
+   Edit it to change
+   "ubuntu"  to your hostname
+
+
+1. Create a data directory.
+   # sudo mkdir /hercules
+
+2. Create 4 directories each for each data server. This is where the
+data servers will store data shards
+   # mkdir -p /hercules/ds0
+   # mkdir -p /hercules/ds1
+   # mkdir -p /hercules/ds2
+   # mkdir -p /hercules/ds3
+
+3. Format the data servers
+   # sudo ../bin/mkfs.hfs ../sampleconfig/samplefsconfig.conf 0 ds
+   # sudo ../bin/mkfs.hfs ../sampleconfig/samplefsconfig.conf 1 ds
+   # sudo ../bin/mkfs.hfs ../sampleconfig/samplefsconfig.conf 2 ds
+   # sudo ../bin/mkfs.hfs ../sampleconfig/samplefsconfig.conf 3 ds
+
+   HFS_ERROR:admin/mkfs_hercules.c:280:
+   Host name mismatch error You provided localhost.localdomain  HFS matched it to "ubuntu"
+
+   Resolution: the samefsconfig has the hostname embedded as
+   "localhost.localdomain", while your machine's hostname was
+   "ubuntu".
+   - Either change sample samplefsconfig and replace
+   locahost.localdomain with your hostname. OR
+
+
+   HFS_ERROR:admin/mkfs_hercules.c:133:Cannot create handle file 000000000.dat
+   OS Error Code 13 : Permission denied
+   Resolution: Check permission and ownership of data folder /hercules in this case.
+               sudo chmod 0777 /hercules
+
+   Verify data servers are formatted.
+   # tree /hercules/
+   /hercules/
+    ├── ds0
+    │   └── 000000000.dat
+    ├── ds1
+    │   └── 000000000.dat
+    ├── ds2
+    │   └── 000000000.dat
+    └── ds3
+        └── 000000000.dat
+
+
+Meta-Data Server setup
+......................
+0. Install mysql. (One time only)
+
+   When asked for a user name password enter username as "root"
+   password as "hercules". Currently this is not configurable and is
+   hardcoded in hercules_db_lib.c. I am open for a patch for this and
+   it should be very trivial.
+
+   # sudo apt-get install libfuse-dev
+     sudo apt-get install mysql-server
+          Create username-password root/hercules *(See above)
+     sudo apt-get install mysql-client
+     sudo apt-get install libmysqlclient-dev
+
+
+
+1. Format the meta data server.
+   # sudo ../bin/mkfs.hfs ../sampleconfig/samplefsconfig.conf 0 mds
+   Old fs exists do you really want to proceed with the                 format[Y]/N:y
+   User Name:Faraz
+   Password:
+
+   The username password is required when mounting the file system.
+
+   Verify metadata server is formatted. [Example I used the username password
+                                         root/hercules as mysql user,
+                                         YOU DON'T HAVE TO HAVE SAME PASSWORD ]
+   # mysql --user=root -p
+     mysql> show databases;
+     +--------------------+
+     | Database           |
+     +--------------------+
+     | information_schema |
+     | Hercules_FS        |
+     | mysql              |
+     +--------------------+
+     mysql> use Hercules_FS
+     mysql> show tables;
+     +-----------------------+
+     | Tables_in_Hercules_FS |
+     +-----------------------+
+     | data_handle           |
+     | fs_config             |
+     | fs_users              |
+     | generation_id         |
+     | inode                 |
+     | metadata_handle       |
+     | namespace             |
+     | stripe_size           |
+     +-----------------------+
+     8 rows in set (0.00 sec)
+
+
+
+
+Starting the meta-data server
+......................
+   # sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 mds 200 &
+   i.e. start the 0th meta data server with following setting
+        ../sampleconfig/sample.conf is the fsconfig
+        0                                  is server id
+        mds                                is server role
+        200                                is max supported clients
+
+   Verify meta data server has started by looking at the log file.
+   # cat /hercules/mds0.log
+   logger/logger.c:38:=========== Starting logger =============
+
+
+
+   Problem:
+   HFS_ERROR:server/hercules_server.c:218:Wait on fs config update semaphore resulted in 13
+   OS Error Code 13 : Permission denied
+   Resolution:
+   You don't have permission to create IPC. Check permission.
+
+
+
+Starting the data servers
+......................
+   # sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 ds 200 &
+
+   Verify meta data server has started by looking at the log file.
+   # cat /hercules/ds0.log
+   logger/logger.c:38:=========== Starting logger =============
+
+
+   Similarly start the remaining data servers
+   # sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 1 ds 200 &
+   # sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 2 ds 200 &
+   # sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 3 ds 200 &
+   i.e start data servers with the following setting
+   [0-3]                                  is server id
+   ds                                     is server role
+
+   Verify meta data server has started by looking at the log file.
+   # cat /hercules/ds1.log
+   # cat /hercules/ds2.log
+   # cat /hercules/ds3.log
+
+
+
+Verifying Cluster is up.
+........................
+
+All processes for 1mds and 4ds should be visible using FUSE
+    # ps -ax | grep hfs_server
+    25088 pts/3    S      0:00 sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 mds 200
+    25089 pts/3    Sl     0:00 ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 mds 200
+    25158 pts/3    S      0:00 sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 ds 200
+    25159 pts/3    Sl     0:00 ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 0 ds 200
+    25175 pts/3    S      0:00 sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 1 ds 200
+    25176 pts/3    Sl     0:00 ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 1 ds 200
+    25189 pts/3    S      0:00 sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 2 ds 200
+    25190 pts/3    Sl     0:00 ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 2 ds 200
+    25203 pts/3    S      0:00 sudo ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 3 ds 200
+    25204 pts/3    Sl     0:00 ../bin/hfs_server ../sampleconfig/samplefsconfig.conf 3 ds 200
+
+
+
+Accessing the cluster over FUSE
+.......................
+   # sudo mkdir -p /mnt/hfsmntpt
+   # sudo ../bin/hfs_client /mnt/hfsmntpt 127.0.0.1 10000 /hercules/clientlog
+   i.e. mount the fuse client for the hfs cluster with the following settings
+   /mnt/hfsmntpt                           is the mount point
+   127.0.0.1                               is the Meta-data server IP
+   10000                                   metadata server port (comes from fsconfig)
+   /clientlog                              is the log file for the client
+
+   Problem
+   fusermount: failed to open /etc/fuse.conf: Permission denied
+   fusermount: user has no write access to mountpoint /mnt/hfsmntpt
+   HFS_ERROR:client/hercules_client_fuse_glue.c:629:Fuse Initialization failed
+   OS Error Code 1 : Operation not permitted
+
+   Resolution.
+   Your login does not have permission to mount fuse filesystems. Check permission
+
+
+   Verify filesystem is mounted.
+   # mount
+    ....
+    hfs_client on /mnt/hfsmntpt type fuse.hfs_client (rw,nosuid,nodev)  << client mounted
+
+
+
+Still Not working :(
+-------------
+See the debug.log file :), location of the debug files comes from the fsconfig file
+1. Start with meta-data server debug log
+   located at /hercules/mds0.log
+2. Next check data server debug log
+   /hercules/ds0.log
+   /hercules/ds[0-3].log
+3. Check the client config log /clientlog in this case.
+4. GDB and fix otherwise.
+5. Send patch.
+5. Everything fils tar up and send "/hercules" folder to fshaikh@cs.cmu.edu

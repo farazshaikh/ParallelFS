@@ -1,0 +1,42 @@
+HFS: Hercules A Fault Tolerant Scalable Parallel File System.
+
+Initial Design.
+
+Working.
+	Server Design.
+	Client Design.
+
+
+Scalability.
+	Perf numbers as MDS and DS are scaled.
+
+Fault Tolerance.
+	RAID 01
+	MYSQL Replication.
+
+	Degraded Operations:
+	Recovery:
+		Recovery from PRIMARY NEIGHBOR lock block before back recovery, BACKUP NEIGHBOR not thought of yet.
+
+Optimizations:
+	Delayed Extent creation.		(Post Mark results with Delayed Extent Creation.)
+		Not amortized over writes as small files may need only less than 1 extent.
+	Small File on MDS.
+	File size calculations.
+	Zero updation.
+
+TestBed And Acknowledgements to Emulab.
+
+
+Performace Section:
+	As the filesystem was developed in increment a lot of performance gathering opportunity was available.
+
+Conclusion:
+	What performed and is recommended.
+
+Future Work:
+	The FUSE needs to worked up.
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+REFERENCES:

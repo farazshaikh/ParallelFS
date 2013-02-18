@@ -1,0 +1,1044 @@
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/test/hercules_test.c,13
+main(26,775
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/test/io_lib_test.c,200
+#define TEST_STRIPE_SIZE 24,754
+void AllocHandle 26,784
+void FreeHandle 39,1043
+void WriteToExtent 51,1293
+void ReadFromExtent 66,1831
+void PrintExtentSize 81,2310
+int io_lib_test_main(94,2636
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/test/inc/hercules_test.h,249
+#define __HERCULES_TEST__23,762
+typedef int (*test_unit_main)test_unit_main25,789
+typedef struct __TEST_UNIT_ 27,846
+  char *moduleName;moduleName28,876
+  test_unit_main testUnitEntry;29,896
+} TEST_UNIT;30,928
+#define TEST_UNIT_LIST 33,996
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/hercules_client_outbound.c,72
+clientOutBoundFailureHandler(31,1123
+clientOutBoundProcessing(64,2247
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/hercules_client_lib.c,1304
+#define INIT_HEADER(26,840
+POSIXTOHFSMODE(34,1151
+HFSMODETOPOSIX(56,1618
+hfs_getattr(78,2220
+hfs_readlink(121,3523
+hfs_mknod(130,3685
+hfs_mkdir(139,3839
+hfs_unlink(147,3971
+hfs_rmdir(154,4080
+hfs_symlink(161,4188
+hfs_rename(169,4333
+hfs_link(177,4476
+hfs_chmod(185,4607
+hfs_chown(193,4739
+hfs_truncate(202,4891
+hfs_utime(210,5028
+hfs_read(218,5170
+hfs_write(420,12527
+hfs_statfs(622,20822
+hfs_flush(630,20967
+hfs_release(638,21122
+hfs_fsync(646,21283
+hfs_setxattr(655,21459
+hfs_getxattr(665,21662
+hfs_listxattr(672,21798
+hfs_removexattr(679,21921
+hfs_opendir(687,22051
+hfs_readdir(698,22399
+HFS_STATUS hfs_releasedir(752,24286
+HFS_STATUS hfs_fsyncdir(759,24464
+HFS_STATUS hfs_access(768,24710
+HFS_STATUS hfs_ftruncate(776,24856
+HFS_STATUS hfs_fgetattr(784,25069
+HFS_STATUS hfs_lock(792,25285
+HFS_STATUS hfs_utimens(801,25526
+HFS_STATUS hfs_bmap(808,25688
+hfs_add_dirent(819,25901
+hfs_create_alloc_meta_data_handles(881,28491
+hfs_create_alloc_data_handle(945,30765
+HFS_STATUS hfs_create(1066,35059
+hfs_lookup(1162,38241
+hfs_getIAttr(1225,40511
+hfs_getISize(1291,42620
+hfs_setIAttr(1423,46881
+hfs_namei(1480,48730
+hfsRaid5GetBlockMapping(1530,50062
+hfsDegradedDSRequest(1549,50728
+#define BACK_UP_MDS_SKIP_OFFSET 1594,52183
+hfsDegradedMDSRequest(1596,52230
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/hercules_client.c,982
+getHFSClient(29,947
+getHFSClientOptions(37,1109
+getPPHFSFSCtx(45,1267
+getHFSFSCtx(51,1357
+PHFS_FS_CTX * getPPHFSFSCtx_MDS(57,1453
+PHFS_FS_CTX getHFSFSCtx_MDS(62,1566
+sigPipeHandler(69,1723
+setSignals(79,1846
+void printUsage(97,2300
+#define MAX_SERVERS_SUPPORTED 101,2406
+#define MAX_MDS_SERVERS_SUPPORTED 102,2447
+#define MAX_DS_SERVERS_SUPPORTED 103,2487
+parse_cmd_line_options(105,2578
+hfsBuildServerPollPool(139,3451
+hfsFreePollPool(196,5452
+setClientSockOpts(210,5894
+resetClientSockOpts(239,6578
+HFS_STATUS hfsConnectServers(267,7284
+hfsDisConnectServers(387,12065
+hfsBuildClient(399,12345
+hfsBuildClientKernel(477,15135
+hfsUnsolicitedCommand(525,16652
+hfsHoldClient(550,17384
+hfsReleaseClient(564,17731
+#define WAIT_RETRIES 580,18202
+#define WAIT_DELAY 581,18236
+hfsWaitForInFlight(583,18284
+hfsConfigChanged(610,19017
+hfsAuthenticateROOTMDS(749,24237
+hfsSetClientCredentials(889,28633
+HFS_STATUS hfsTermGetCredentials(899,29089
+main(925,29957
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/hercules_client_inbound.c,214
+#define RESET_CONNECTION_STATE_MACHINE(33,1305
+IsCommandUnsolicited(42,1769
+IsValidRespHeader(48,1866
+hfsClientPumpBytesToConnSM(55,1936
+hfsClientSocketProcessCommands(223,8619
+hfsClientInboundLoop(279,10155
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/inc/hercules_client_lib.h,496
+typedef struct __HFS_CLIENT_FILE_HDL 23,764
+    HFS_SERVER_ID serverId;24,803
+    HFS_META_DATA_HANDLE metaDataHandle;25,831
+    HFS_IATTR iAttr;26,872
+}HFS_CLIENT_FILE_HDL,*PHFS_CLIENT_FILE_HDL;PHFS_CLIENT_FILE_HDL27,893
+typedef struct __hfsRaid5blkMap 86,2893
+    HFS_SERVER_ID dataServerIdx;87,2927
+    __u32 dataStripeOffset;88,2960
+    HFS_SERVER_ID parityServerIdx;89,2988
+    __u32 parityStripeOffset;90,3023
+} HFS_RAID5_BLK_MAP, *PHFS_RAID5_BLK_MAP;PHFS_RAID5_BLK_MAP91,3053
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/inc/hercules_client.h,2395
+#define MAX_HOST_NAME 23,732
+#define SOCKET_EVENT_MASK 24,778
+#define COOKIE_QITEM_IDX 27,868
+#define COOKIE_DATA_SERVER_IDX 28,902
+#define HFS_OUTBOUND_THREAD_NR 31,977
+typedef struct __HERCULES_CLIENT_CONFIG 34,1064
+    char  userName[userName35,1106
+    char  epassword[epassword36,1147
+    char  hostName[hostName37,1226
+    char *configFilePath;configFilePath38,1261
+    char *mntpnt;mntpnt39,1287
+    int   maxServersAllowed;40,1305
+    int   maxMDSServers;41,1334
+} HERCULES_CLIENT_CONFIG, *PHERCULES_CLIENT_CONFIG;PHERCULES_CLIENT_CONFIG42,1359
+typedef enum _RESP_COMM_STAGE 45,1469
+    RESP_COM_STAGE_WAITING,46,1501
+    RESP_COM_STAGE_HEADER,47,1529
+    RESP_COM_STAGE_COMMAND,48,1556
+    RESP_COMM_STAGE_EXTENT,49,1584
+    RESP_COMM_STAGE_MAX50,1612
+} REQ_COMM_STAGE;51,1636
+typedef struct __HFS_SERVER_CONN_CTX 53,1655
+    int                 used;54,1694
+    int                 PendingCommands;55,1724
+    HFS_PROTO_HEADER    bounceHdr;58,1871
+    REQ_COMM_STAGE      inStage;59,1906
+    int                 bytesReadOff;60,1939
+    int                 commandSize;61,1977
+    PHFS_QUEUE_ITEM     pQueueItem;62,2014
+    HFS_MUTEX          mutexPendingCommandslst;65,2097
+    struct list_head    lstAnchorPendingCommands;66,2145
+} HFS_SERVER_CONN_CTX, *PHFS_SERVER_CONN_CTX;PHFS_SERVER_CONN_CTX67,2195
+typedef struct __HERCULES_CLIENT_KERNEL 70,2299
+    PHFS_QUEUE_PROCESSOR    pQOutBound;71,2341
+    int                     clientRunning;72,2381
+    pthread_t               tidInBoundProcessor;73,2424
+    HFS_MUTEX               configUpdateMutex;76,2507
+    HFS_SEMAPHORE           clientOutBoundCritSections;77,2554
+    int                     activeServers;78,2658
+    struct pollfd          *pPollFds;pPollFds79,2701
+    PHFS_SERVER_CONN_CTX    pServerConnCtx;80,2739
+} HERCULES_CLIENT_KERNEL, *PHERCULES_CLIENT_KERNEL;PHERCULES_CLIENT_KERNEL81,2783
+typedef struct __HERCULES_CLIENT 84,2885
+    HERCULES_CLIENT_CONFIG   config;85,2920
+    HERCULES_CLIENT_KERNEL   kernel;86,2957
+} HERCULES_CLIENT, *PHERCULES_CLIENT;PHERCULES_CLIENT87,2994
+#define RELEASE_CLIENT_SOCKET_IF_NO_PENDING(112,3783
+#define DEACTIVATE_CLIENT_SIDE_SOCKET(124,4547
+#define ACTIVATE_CLIENT_SOCKET(132,4934
+#define GET_DS_SERVERS_CLIENT_IDX(140,5417
+#define HFS_CLIENT_MDS_IDX_INTERLEAVE 143,5542
+#define GET_MDS_SERVERS_CLIENT_IDX(144,5586
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/client/hercules_client_fuse_glue.c,945
+#define FUSE_USE_VERSION 23,851
+SAVE_CLIENT_FILE_HANDLE(32,1073
+GET_CLIENT_FILE_HANDLE(49,1572
+void handler1(64,2024
+clnt_fuse_getattr(73,2152
+clnt_fuse_access(94,2524
+clnt_fuse_readlink(106,2711
+clnt_fuse_readdir(123,2967
+clnt_fuse_mknod(170,4303
+clnt_fuse_mkdir(195,4925
+clnt_fuse_unlink(219,5535
+clnt_fuse_rmdir(232,5706
+clnt_fuse_symlink(245,5875
+clnt_fuse_rename(258,6068
+clnt_fuse_link(271,6259
+clnt_fuse_chmod(284,6450
+clnt_fuse_chown(297,6642
+clnt_fuse_truncate(310,6848
+clnt_fuse_utimens(323,7045
+#define IS_FLAG_SET(343,7448
+clnt_fuse_open(345,7509
+clnt_fuse_read(417,9711
+clnt_fuse_write(443,10313
+clnt_fuse_statfs(468,10923
+clnt_fuse_release(483,11142
+clnt_fuse_fsync(502,11696
+clnt_fuse_init 516,11996
+clnt_fuse_setxattr(539,12535
+clnt_fuse_getxattr(551,12790
+clnt_fuse_listxattr(563,13023
+clnt_fuse_removexattr(575,13214
+static struct fuse_operations clnt_fuse_oper 587,13410
+hfsFuseInit(620,14345
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/utils/utils_config.c,525
+#define NON_SERVER_LINES 26,809
+#define FS_NAME 27,836
+#define STRIPE_SIZE 28,866
+#define MDS_FIRST_IDX 29,891
+#define DS_FIRST_IDX 30,915
+#define NAME_EQUALS(32,939
+#define IS_MDS(33,997
+#define IS_DS(34,1047
+#define SET_HEADER(36,1096
+hfsBuildFSContext(51,1617
+hfsGetMDSFromServIdx(132,3838
+hfsGetDSFromServIdx(163,4515
+hfsGetServerFromName(193,5183
+getServerCount(252,6728
+readMDS(299,7794
+readDS(367,9620
+hfsReadFSConfigFromServer(436,11464
+hfsGetFSExtentSize(574,16346
+hfsBuildFSContext_MDS(645,18539
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/utils/utils_common.c,508
+hfsMutexInit(26,789
+hfsMutexDestroy(34,960
+hfsMutexLock(42,1137
+hfsMutexUnlock(50,1302
+hfsSemInit(59,1489
+hfsSemWait(69,1736
+hfsSempost(82,1988
+hfsSemGetValue(90,2128
+hfsSemTryWait(98,2301
+hfsSemDestroy(106,2455
+hfsCalloc(115,2644
+hfsFree(122,2730
+CommonQueueDispatch(133,2848
+hfsQueueAlloc(210,5545
+hfsQueuehfsFree(223,5923
+hfsQueueInit(229,6054
+#define QUEUE_DRAIN_RETRY_TIMEOUT 252,6764
+hfsQueueDrain(254,6813
+hfsQueueSetState(286,7627
+hfsQueueGetState(299,7994
+hfsQueueItem(308,8167
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/utils/hfs_proto_buff.c,498
+#define GET_BUFF_SIZE(26,852
+#define GET_COMMAND_SIZE(34,1235
+hfsGetCommandSize(46,1632
+int GetMaximumMemSize(85,2952
+int pduHasPayLoad(123,4268
+toggleReqResp(148,4768
+hfsWaitQItem(158,4936
+hfsSignalQItem(166,5073
+hfsAllocateProtoBuff(174,5223
+hfsFreeProtoBuff(198,6017
+hfsEncodeProtoHeader(210,6200
+hfsDecodeProtoHeader(220,6393
+#define ENC_CMD_BUFF(232,6586
+#define DEC_CMD_BUFF(243,7265
+hfsEncodeCommandBuffer(255,7956
+hfsDecodeCommandBuffer(294,9269
+getExtentPointer(333,10578
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/io/hercules_io_lib.c,205
+readHandleFromFile(25,788
+srvAllocDataHandle(78,2250
+HFS_STATUS srvFreeDataHandle(129,3549
+HFS_STATUS srvReadStripe(155,4224
+srvWriteStripe(226,5875
+srvGetExtentSize 290,7425
+hdlToFileName(346,8596
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/utils_common.h,2057
+#define __UTILS_COMMON_H_23,755
+typedef pthread_mutex_t         HFS_MUTEX,32,925
+typedef pthread_mutex_t         HFS_MUTEX,*PHFS_MUTEX;PHFS_MUTEX32,925
+typedef sem_t       HFS_SEMAPHORE,38,1134
+typedef sem_t       HFS_SEMAPHORE,*PHFS_SEMAPHORE;PHFS_SEMAPHORE38,1134
+typedef enum __QUEUE_STATE 51,1582
+    QUEUE_STATE_UNKNOWN,52,1611
+    QUEUE_STATE_STARTED,53,1636
+    QUEUE_STATE_PAUSED,54,1661
+    QUEUE_STATE_STOPPED55,1685
+}QUEUE_STATE;QUEUE_STATE56,1709
+typedef struct _HFS_QUEUE_ITEM 58,1724
+    struct list_head    listHead;59,1757
+    HFS_SEMAPHORE       completionSem;60,1791
+    int                 totalMemory;61,1830
+    int                 clientIdx;62,1867
+}HFS_QUEUE_ITEM,*PHFS_QUEUE_ITEM;PHFS_QUEUE_ITEM63,1902
+typedef HFS_STATUS (*QPPROCESSING_FN)QPPROCESSING_FN65,1937
+#define MAX_THREADS_PER_QUEUE 66,2004
+typedef struct __HFS_QUEUE_PROCESSOR 67,2039
+    QUEUE_STATE     state;69,2101
+    HFS_SEMAPHORE   semPendingItems;71,2175
+    HFS_MUTEX       queueLock;73,2258
+    struct list_head lstAnchorPendingCmds;75,2336
+    QPPROCESSING_FN process;77,2425
+    int             thread_count;79,2499
+    pthread_t       thread_ids[thread_ids80,2533
+} HFS_QUEUE_PROCESSOR, *PHFS_QUEUE_PROCESSOR;PHFS_QUEUE_PROCESSOR81,2588
+#define MAX_FILE_SYSTEM_NAME 92,3132
+typedef struct __HFS_FS_CTX 93,3165
+    char                fsName[fsName94,3195
+    int                 totalServer;96,3283
+    int                 stripeSize;97,3320
+    int                 mdsCount;98,3356
+    PHFS_SERVER_INFO    pMdsServerInfo;99,3390
+    int                 dsCount;100,3430
+    PHFS_SERVER_INFO    pDsServerInfo;101,3463
+    HFS_SERVER_INFO     server[server104,3576
+    HFS_SERVER_INFO         mdserver[mdserver105,3611
+    HFS_SERVER_INFO         dserver[dserver106,3666
+}HFS_FS_CTX,*PHFS_FS_CTX;PHFS_FS_CTX108,3720
+#define SERVER_CONFIG_ROLE_MDS 111,3748
+#define SERVER_CONFIG_ROLE_DS 112,3786
+#define SERVER_CONFIG_ROLE_MAX 113,3824
+#define ISNULL(122,4311
+#define MAX(123,4343
+#define MIN(124,4381
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_types.h,94
+#define __HERCULES_TYPES__23,785
+typedef long HFS_STATUS;26,837
+#define HFS_SUCCESS(27,863
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/proto_common.h,19401
+#define __PROTO_COMMON_H__23,774
+#define HFS_MAX_FILE_NAME 28,855
+#define HFS_MIN_MDS_CNT 29,891
+#define HFS_MAX_MDS_CNT 30,925
+#define HFS_MIN_STRIPE_CNT 31,960
+#define HFS_MAX_STRIPE_CNT 32,994
+#define HFS_MIN_DS_CNT 33,1029
+#define HFS_MAX_DS_CNT 34,1080
+#define HFS_MIN_STRIPE_SIZE 35,1115
+#define HFS_MAX_STRIPE_SIZE 36,1152
+#define HFS_INVALID_HANDLE 37,1190
+#define BACK_INTERLEAVE_FACTOR 39,1228
+#define TOTAL_COPIES 40,1262
+#define HFS_INVALID_HANDLE 44,1328
+#define HFS_ROOT_HANDLE 45,1365
+#define HFS_ROOT_SERVER_IDX 46,1402
+#define HFS_FIRST_DATA_HANDLE 49,1488
+#define HFS_DATA_SERVER_META_FILE_HANDLE 50,1538
+#define HFS_MAX_HOST_NAME 53,1625
+#define HFS_MAX_IP_ADDRESS 54,1660
+#define HFS_MAX_PORT_STR 55,1695
+#define HFS_MAX_PROTO_STR 56,1730
+#define HFS_MAX_DATA_STORE_PATH 57,1764
+#define HFS_MAX_LOG_FILE_PATH 58,1800
+#define HFS_MAX_FILE_SYSTEM_NAME 59,1836
+#define HFS_S_IFMT 63,1929
+#define HFS_S_IFSOCK 64,1991
+#define HFS_S_IFLNK 65,2048
+#define HFS_S_IFREG 66,2112
+#define HFS_S_IFBLK 67,2175
+#define HFS_S_IFDIR 68,2238
+#define HFS_S_IFCHR 69,2298
+#define HFS_S_IFIFO 70,2365
+#define HFS_S_IFUNKNOWN 71,2420
+#define CMD_REQ_DS_PING 74,2525
+#define CMD_RESP_DS_PING 75,2573
+#define CMD_REQ_DS_ALLOC_HANDLE 77,2622
+#define CMD_RESP_DS_ALLOC_HANDLE 78,2670
+#define CMD_REQ_DS_FREE_HANDLE 80,2719
+#define CMD_RESP_DS_FREE_HANDLE 81,2767
+#define CMD_REQ_DS_READ_STRIPE 83,2816
+#define CMD_RESP_DS_READ_STRIPE 84,2864
+#define CMD_REQ_DS_WRITE_STRIPE 86,2913
+#define CMD_RESP_DS_WRITE_STRIPE 87,2961
+#define CMD_REQ_DS_READ_STRIPE_V 89,3010
+#define CMD_RESP_DS_READ_STRIPE_V 90,3058
+#define CMD_REQ_DS_WRITE_STRIPE_V 92,3107
+#define CMD_RESP_DS_WRITE_STRIPE_V 93,3155
+#define CMD_REQ_DS_GET_LENGTH 95,3204
+#define CMD_RESP_DS_GET_LENGTH 96,3252
+#define CMD_REQ_DS_GET_DISK_USAGE 98,3302
+#define CMD_RESP_DS_GET_DISK_USAGE 99,3351
+#define CMD_REQ_DS_GET_STATS 101,3401
+#define CMD_RESP_DS_GET_STATS 102,3450
+#define CMD_REQ_MDS_PING 109,3568
+#define CMD_RESP_MDS_PING 110,3617
+#define CMD_REQ_MDS_ALLOC_HANDLE 112,3667
+#define CMD_RESP_MDS_ALLOC_HANDLE 113,3716
+#define CMD_REQ_MDS_FREE_HANDLE 115,3766
+#define CMD_RESP_MDS_FREE_HANDLE 116,3815
+#define CMD_REQ_MDS_READDIR 118,3865
+#define CMD_RESP_MDS_READDIR 119,3914
+#define CMD_REQ_MDS_CREATE_DIRENT 121,3964
+#define CMD_RESP_MDS_CREATE_DIRENT 122,4013
+#define CMD_REQ_MDS_DELETE_DIRENT 124,4063
+#define CMD_RESP_MDS_DELETE_DIRENT 125,4112
+#define CMD_REQ_MDS_LOOK_UP 127,4162
+#define CMD_RESP_MDS_LOOK_UP 128,4211
+#define CMD_REQ_MDS_GET_ATTR 130,4261
+#define CMD_RESP_MDS_GET_ATTR 131,4310
+#define CMD_REQ_MDS_SET_ATTR 133,4360
+#define CMD_RESP_MDS_SET_ATTR 134,4409
+#define CMD_REQ_MDS_GET_EXTENT_SIZE 136,4459
+#define CMD_RESP_MDS_GET_EXTENT_SIZE 137,4508
+#define CMD_REQ_MDS_GET_CONFIG 139,4558
+#define CMD_RESP_MDS_GET_CONFIG 140,4607
+#define CMD_REQ_MDS_LOGIN_PHASE1 142,4657
+#define CMD_RESP_MDS_LOGIN_PHASE1 143,4706
+#define CMD_REQ_MDS_LOGIN_PHASE2 145,4756
+#define CMD_RESP_MDS_LOGIN_PHASE2 146,4805
+#define CMD_REQ_MDS_FS_CONF_CHANGED 150,4907
+#define CMD_RESP_MDS_FS_CONF_CHANGED 151,4974
+typedef __u32         HFS_SERVER_ID;156,5074
+typedef __u32         HFS_META_DATA_HANDLE,157,5111
+typedef __u32         HFS_META_DATA_HANDLE,HFS_DATA_HANDLE;157,5111
+#define LAST_ACT_DS_READ 162,5262
+#define LAST_ACT_DS_WRITE 163,5297
+#define LAST_ACT_MDS_READ 164,5356
+#define LAST_ACT_MDS_WRITE 165,5415
+#define LAST_ACT_MASK 166,5474
+typedef struct __REQ_DS_PING{__REQ_DS_PING167,5509
+    __u32   cookie;168,5539
+}REQ_DS_PING,PREQ_DS_PING;169,5559
+typedef struct __RESP_DS_PING 170,5586
+    __u32   cookie;171,5618
+}RESP_DS_PING,*PRESP_DS_PING;PRESP_DS_PING172,5638
+typedef struct __REQ_DS_ALLOC_HANDLE{__REQ_DS_ALLOC_HANDLE175,5728
+  HFS_SERVER_ID   serverId;176,5766
+  HFS_DATA_HANDLE dataHandle;177,5794
+}REQ_DS_ALLOC_HANDLE,*PREQ_DS_ALLOC_HANDLE;PREQ_DS_ALLOC_HANDLE178,5824
+typedef struct __RESP_{__RESP_179,5868
+  HFS_SERVER_ID   serverId;180,5892
+  HFS_DATA_HANDLE dataHandle;181,5920
+}RESP_DS_ALLOC_HANDLE,*PRESP_DS_ALLOC_HANDLE;PRESP_DS_ALLOC_HANDLE182,5950
+typedef struct __REQ_DS_FREE_HANDLE{__REQ_DS_FREE_HANDLE185,6056
+  HFS_SERVER_ID   serverId;186,6093
+  HFS_DATA_HANDLE dataHandle;187,6121
+}REQ_DS_FREE_HANDLE,*PREQ_DS_FREE_HANDLE;PREQ_DS_FREE_HANDLE188,6151
+typedef struct __RESP_DS_FREE_HANDLE{__RESP_DS_FREE_HANDLE189,6193
+  HFS_SERVER_ID   serverId;190,6231
+  HFS_DATA_HANDLE dataHandle;191,6259
+}RESP_DS_FREE_HANDLE,*PRESP_DS_FREE_HANDLE;PRESP_DS_FREE_HANDLE192,6289
+typedef struct __REQ_DS_READ_STRIPE{__REQ_DS_READ_STRIPE195,6393
+  HFS_SERVER_ID   serverId;196,6430
+  HFS_DATA_HANDLE dataHandle;197,6458
+  __u32           stripeNum;198,6488
+  __u32           stripeCnt;199,6517
+  __u32           readSize;200,6546
+}REQ_DS_READ_STRIPE,*PREQ_DS_READ_STRIPE;PREQ_DS_READ_STRIPE201,6574
+typedef struct __RESP_DS_READ_STRIPE{__RESP_DS_READ_STRIPE202,6616
+  HFS_SERVER_ID   serverId;203,6654
+  HFS_DATA_HANDLE dataHandle;204,6682
+  __u32           stripeNum;205,6712
+  __u32           stripeCnt;206,6741
+  __u32           readSize;207,6770
+}RESP_DS_READ_STRIPE,*PRESP_DS_READ_STRIPE;PRESP_DS_READ_STRIPE208,6798
+typedef struct __REQ_DS_WRITE_STRIPE{__REQ_DS_WRITE_STRIPE211,6902
+  HFS_SERVER_ID   serverId;212,6940
+  HFS_DATA_HANDLE dataHandle;213,6968
+  __u32           stripeNum;214,6998
+  __u32           stripeCnt;215,7027
+  __u32           writeSize;216,7056
+  __u32           writeInStripeOffset;217,7085
+}REQ_DS_WRITE_STRIPE,*PREQ_DS_WRITE_STRIPE;PREQ_DS_WRITE_STRIPE218,7124
+typedef struct __RESP_DS_WRITE_STRIPE{__RESP_DS_WRITE_STRIPE219,7168
+  HFS_SERVER_ID   serverId;220,7207
+  HFS_DATA_HANDLE dataHandle;221,7235
+  __u32           stripeNum;222,7265
+  __u32           stripeCnt;223,7294
+  __u32           writeSize;224,7323
+  __u32           writeInStripeOffset;225,7352
+}RESP_DS_WRITE_STRIPE,*PRESP_DS_WRITE_STRIPE;PRESP_DS_WRITE_STRIPE226,7391
+typedef struct __REQ_DS_READ_STRIPE_V{__REQ_DS_READ_STRIPE_V229,7498
+}REQ_DS_READ_STRIPE_V,*PREQ_DS_READ_STRIPE_V;PREQ_DS_READ_STRIPE_V230,7537
+typedef struct __RESP_DS_READ_STRIPE_V{__RESP_DS_READ_STRIPE_V231,7583
+}RESP_DS_READ_STRIPE_V,*PRESP_DS_READ_STRIPE_V;PRESP_DS_READ_STRIPE_V232,7623
+typedef struct __REQ_DS_WRITE_STRIPE_V{__REQ_DS_WRITE_STRIPE_V235,7733
+}REQ_DS_WRITE_STRIPE_V,*PREQ_DS_WRITE_STRIPE_V;PREQ_DS_WRITE_STRIPE_V236,7773
+typedef struct __RESP_DS_WRITE_STRIPE_V{__RESP_DS_WRITE_STRIPE_V237,7821
+}RESP_DS_WRITE_STRIPE_V,*PRESP_DS_WRITE_STRIPE_V;PRESP_DS_WRITE_STRIPE_V238,7862
+typedef struct __REQ_DS_GET_LENGTH{__REQ_DS_GET_LENGTH241,7974
+  HFS_SERVER_ID   serverId;242,8010
+  HFS_DATA_HANDLE dataHandle;243,8038
+  __u32           extentSize;244,8068
+}REQ_DS_GET_LENGTH,*PREQ_DS_GET_LENGTH;PREQ_DS_GET_LENGTH245,8098
+typedef struct __RESP_DS_GET_LENGTH{__RESP_DS_GET_LENGTH246,8138
+  HFS_SERVER_ID   serverId;247,8175
+  HFS_DATA_HANDLE dataHandle;248,8203
+  __u32           extentSize;249,8233
+}RESP_DS_GET_LENGTH,*PRESP_DS_GET_LENGTH;PRESP_DS_GET_LENGTH250,8263
+typedef struct __REQ_DS_GET_DISK_USAGE{__REQ_DS_GET_DISK_USAGE253,8367
+}REQ_DS_GET_DISK_USAGE,*PREQ_DS_GET_DISK_USAGE;PREQ_DS_GET_DISK_USAGE254,8407
+typedef struct __RESP_DS_GET_DISK_USAGE{__RESP_DS_GET_DISK_USAGE255,8455
+}RESP_DS_GET_DISK_USAGE,*PRESP_DS_GET_DISK_USAGE;PRESP_DS_GET_DISK_USAGE256,8496
+typedef struct __REQ_DS_GET_STATS{__REQ_DS_GET_STATS259,8608
+}REQ_DS_GET_STATS,*PREQ_DS_GET_STATS;PREQ_DS_GET_STATS260,8643
+typedef struct __RESP_DS_GET_STATS{__RESP_DS_GET_STATS261,8681
+}RESP_DS_GET_STATS,*PRESP_DS_GET_STATS;PRESP_DS_GET_STATS262,8717
+typedef struct __REQ_MDS_PING{__REQ_MDS_PING267,8844
+    __u32   cookie;268,8875
+}REQ_MDS_PING,*PREQ_MDS_PING;PREQ_MDS_PING269,8895
+typedef struct __RESP_MDS_PING{__RESP_MDS_PING270,8925
+    __u32   cookie;271,8957
+}RESP_MDS_PING,*PRESP_MDS_PING;PRESP_MDS_PING272,8977
+typedef struct __REQ_MDS_ALLOC_HANDLE{__REQ_MDS_ALLOC_HANDLE275,9071
+    HFS_SERVER_ID           serverId;276,9110
+    HFS_META_DATA_HANDLE    metaDataHandle;277,9148
+}REQ_MDS_ALLOC_HANDLE,*PREQ_MDS_ALLOC_HANDLE;PREQ_MDS_ALLOC_HANDLE278,9192
+typedef struct __RESP_MDS_ALLOC_HANDLE{__RESP_MDS_ALLOC_HANDLE279,9238
+    HFS_SERVER_ID           serverId;280,9278
+    HFS_META_DATA_HANDLE    metaDataHandle;281,9316
+}RESP_MDS_ALLOC_HANDLE,*PRESP_MDS_ALLOC_HANDLE;PRESP_MDS_ALLOC_HANDLE282,9360
+typedef struct __REQ_MDS_FREE_HANDLE{__REQ_MDS_FREE_HANDLE285,9470
+  HFS_SERVER_ID         serverId;286,9508
+  HFS_META_DATA_HANDLE  metaDataHandle;287,9542
+}REQ_MDS_FREE_HANDLE,*PREQ_MDS_FREE_HANDLE;PREQ_MDS_FREE_HANDLE288,9582
+typedef struct __RESP_MDS_FREE_HANDLE{__RESP_MDS_FREE_HANDLE289,9626
+  HFS_SERVER_ID         serverId;290,9665
+  HFS_META_DATA_HANDLE  metaDataHandle;291,9699
+}RESP_MDS_FREE_HANDLE,*PRESP_MDS_FREE_HANDLE;PRESP_MDS_FREE_HANDLE292,9739
+typedef struct __REQ_MDS_READDIR{__REQ_MDS_READDIR295,9847
+  HFS_META_DATA_HANDLE  metaDataHandle;296,9881
+  __u32                 direntOffset;297,9921
+}REQ_MDS_READDIR,*PREQ_MDS_READDIR;PREQ_MDS_READDIR298,9959
+typedef struct __RESP_MDS_READDIR{__RESP_MDS_READDIR299,9995
+  HFS_META_DATA_HANDLE  metaDataHandle;300,10030
+  __u32                 direntCount;301,10070
+}RESP_MDS_READDIR,*PRESP_MDS_READDIR;PRESP_MDS_READDIR302,10107
+typedef struct  __HFS_DIRENT 304,10146
+    HFS_META_DATA_HANDLE    parentMetaDataHandle;305,10177
+    HFS_META_DATA_HANDLE    selfMetaDataHandle;306,10227
+    HFS_SERVER_ID           serverId;307,10275
+    __u8                    dname[dname308,10313
+    __u32                   dirEntMode;309,10367
+}HFS_DIRENT,*PHFS_DIRENT;PHFS_DIRENT310,10407
+typedef struct __REQ_MDS_CREATE_DIRENT{__REQ_MDS_CREATE_DIRENT313,10495
+    HFS_DIRENT              hfsDirent;314,10535
+}REQ_MDS_CREATE_DIRENT,*PREQ_MDS_CREATE_DIRENT;PREQ_MDS_CREATE_DIRENT315,10574
+typedef struct __RESP_MDS_CREATE_DIRENT{__RESP_MDS_CREATE_DIRENT316,10622
+    __u32                   cookie;317,10663
+}RESP_MDS_CREATE_DIRENT,*PRESP_MDS_CREATE_DIRENT;PRESP_MDS_CREATE_DIRENT318,10699
+typedef struct __REQ_MDS_DELETE_DIRENT{__REQ_MDS_DELETE_DIRENT321,10811
+    HFS_META_DATA_HANDLE    parentMetaDataHandle;322,10851
+    HFS_META_DATA_HANDLE    selfMetaDataHandle;323,10901
+}REQ_MDS_DELETE_DIRENT,*PREQ_MDS_DELETE_DIRENT;PREQ_MDS_DELETE_DIRENT324,10949
+typedef struct __RESP_MDS_DELETE_DIRENT{__RESP_MDS_DELETE_DIRENT325,10997
+    __u32                   cookie;326,11038
+}RESP_MDS_DELETE_DIRENT,*PRESP_MDS_DELETE_DIRENT;PRESP_MDS_DELETE_DIRENT327,11074
+typedef struct __REQ_MDS_LOOK_UP{__REQ_MDS_LOOK_UP330,11186
+    HFS_META_DATA_HANDLE    parentMetaDataHandle;331,11220
+    __u32                   serverId;332,11270
+    __u8                    dname[dname333,11308
+}REQ_MDS_LOOK_UP,*PREQ_MDS_LOOK_UP;PREQ_MDS_LOOK_UP334,11362
+typedef struct __RESP_MDS_LOOK_UP{__RESP_MDS_LOOK_UP335,11398
+    HFS_META_DATA_HANDLE    selfHandle;336,11433
+    HFS_SERVER_ID           serverId;337,11473
+}RESP_MDS_LOOK_UP,*PRESP_MDS_LOOK_UP;PRESP_MDS_LOOK_UP338,11511
+#define MDS_ATTR_MASK_DH 341,11611
+typedef struct __HFS_IATTR 342,11656
+    HFS_META_DATA_HANDLE    selfMetaDataHandle;343,11685
+    __u32                   iMode;344,11733
+    __u32                   owner;345,11768
+    __u32                   linkCount;346,11803
+    __u32                   group;347,11842
+    __u32                   a_time;348,11877
+    __u32                   c_time;349,11913
+    __u32                   m_time;350,11949
+    __u32                   size;351,11985
+    __u32                   stripe_cnt;352,12019
+    __u32                   rdev_t;353,12059
+    HFS_SERVER_ID           dataHandlesSrvs[dataHandlesSrvs354,12095
+    HFS_META_DATA_HANDLE    dataHandles[dataHandles355,12191
+}HFS_IATTR,*PHFS_IATTR;PHFS_IATTR356,12287
+typedef struct __REQ_MDS_GET_ATTR{__REQ_MDS_GET_ATTR358,12312
+    HFS_META_DATA_HANDLE    selfMetaDataHandle;359,12347
+}REQ_MDS_GET_ATTR,*PREQ_MDS_GET_ATTR;PREQ_MDS_GET_ATTR360,12395
+typedef struct __RESP_MDS_GET_ATTR{__RESP_MDS_GET_ATTR361,12433
+    HFS_IATTR attr;362,12469
+}RESP_MDS_GET_ATTR,*PRESP_MDS_GET_ATTR;PRESP_MDS_GET_ATTR363,12489
+typedef struct __REQ_MDS_SET_ATTR{__REQ_MDS_SET_ATTR366,12591
+    HFS_IATTR attr;367,12626
+    __u32     attrMask;368,12646
+}REQ_MDS_SET_ATTR,*PREQ_MDS_SET_ATTR;PREQ_MDS_SET_ATTR369,12670
+typedef struct __RESP_MDS_SET_ATTR{__RESP_MDS_SET_ATTR370,12708
+    __u32    cookie;371,12744
+}RESP_MDS_SET_ATTR,*PRESP_MDS_SET_ATTR;PRESP_MDS_SET_ATTR372,12765
+typedef struct __REQ_MDS_GET_EXTENT_SIZE{__REQ_MDS_GET_EXTENT_SIZE375,12865
+    __u32   unused;376,12907
+}REQ_MDS_GET_EXTENT_SIZE,*PREQ_MDS_GET_EXTENT_SIZE;PREQ_MDS_GET_EXTENT_SIZE377,12927
+typedef struct __RESP_MDS_GET_EXTENT_SIZE{__RESP_MDS_GET_EXTENT_SIZE378,12979
+    __u32   extent_size;379,13022
+}RESP_MDS_GET_EXTENT_SIZE,*PRESP_MDS_GET_EXTENT_SIZE;PRESP_MDS_GET_EXTENT_SIZE380,13047
+typedef struct __REQ_MDS_GET_CONFIG{__REQ_MDS_GET_CONFIG383,13157
+  __u32                 srvrentOffset;384,13194
+}REQ_MDS_GET_CONFIG,*PREQ_MDS_GET_CONFIG;PREQ_MDS_GET_CONFIG385,13233
+typedef struct __RESP_MDS_GET_CONFIG{__RESP_MDS_GET_CONFIG386,13275
+  __u32                 srvrentCount;387,13313
+}RESP_MDS_GET_CONFIG,*PRESP_MDS_GET_CONFIG;PRESP_MDS_GET_CONFIG388,13351
+typedef struct __REQ_MDS_FS_CONF_CHANGED{__REQ_MDS_FS_CONF_CHANGED391,13451
+  __u32                 padding;392,13493
+}REQ_MDS_FS_CONF_CHANGED,*PREQ_MDS_FS_CONF_CHANGED;PREQ_MDS_FS_CONF_CHANGED393,13526
+typedef struct __RESP_MDS_FS_CONF_CHANGED{__RESP_MDS_FS_CONF_CHANGED394,13578
+  __u32                 padding;395,13621
+}RESP_MDS_FS_CONF_CHANGED,*PRESP_MDS_FS_CONF_CHANGED;PRESP_MDS_FS_CONF_CHANGED396,13654
+#define HFS_MAX_USER_NAME 400,13753
+#define HFS_MAX_ENC_PASSWORD 401,13789
+typedef struct __REQ_MDS_LOGIN_PHASE1{__REQ_MDS_LOGIN_PHASE1403,13947
+  char          user[user404,13986
+}REQ_MDS_LOGIN_PHASE1,*PREQ_MDS_LOGIN_PHASE1;PREQ_MDS_LOGIN_PHASE1405,14027
+typedef struct __RESP_MDS_LOGIN_PHASE1{__RESP_MDS_LOGIN_PHASE1406,14073
+  __u32                 encryptedNonce_high;408,14123
+  __u32                 encryptedNonce_low;409,14168
+  __u64                 encryptedNonce;410,14212
+  }u;u411,14252
+}RESP_MDS_LOGIN_PHASE1,*PRESP_MDS_LOGIN_PHASE1;PRESP_MDS_LOGIN_PHASE1412,14258
+typedef struct __REQ_MDS_LOGIN_PHASE2{__REQ_MDS_LOGIN_PHASE2415,14350
+  char                  user[user416,14389
+  __u32                 decryptedNonce_high;418,14448
+  __u32                 decryptedNonce_low;419,14493
+  __u64                 dencryptedNonce;420,14537
+  }u;u421,14578
+}REQ_MDS_LOGIN_PHASE2,*PREQ_MDS_LOGIN_PHASE2;PREQ_MDS_LOGIN_PHASE2422,14584
+typedef struct __RESP_MDS_LOGIN_PHASE2{__RESP_MDS_LOGIN_PHASE2423,14630
+  __u32                 padding;424,14670
+}RESP_MDS_LOGIN_PHASE2,*PRESP_MDS_LOGIN_PHASE2;PRESP_MDS_LOGIN_PHASE2425,14703
+typedef struct _HFS_SERVER_INFO 430,14755
+    char    hostName[hostName431,14790
+    char    ipAddr[ipAddr432,14831
+    char    port[port433,14871
+    char    proto[proto434,14907
+    char    dataStorePath[dataStorePath435,14945
+    char    logFile[logFile436,14997
+    char    filesystemName[filesystemName437,15041
+    int     serverIdx;438,15095
+    int     role;439,15118
+}HFS_SERVER_INFO,*PHFS_SERVER_INFO;PHFS_SERVER_INFO440,15136
+#define COOKIE_COUNT 444,15200
+#define CREDS_COUNT 445,15234
+#define HFS_PROTO_MAGIC 446,15268
+typedef struct __HFS_PROTO_HEADER 447,15321
+    __u32   protoMagic;448,15357
+    __u32   version;449,15381
+    __u32   command;450,15402
+    __u32   pduExtentSize;451,15423
+    __u32   status;452,15513
+    __u32   credentials[credentials453,15533
+    __u64   cookies[cookies454,15571
+}HFS_PROTO_HEADER;HFS_PROTO_HEADER455,15632
+typedef struct __HFS_SERVER_REQ 457,15652
+    HFS_PROTO_HEADER hdr;458,15686
+        REQ_DS_PING             reqDSPing;460,15724
+        REQ_DS_ALLOC_HANDLE     reqDSAllocHandle;461,15767
+        REQ_DS_FREE_HANDLE      reqDSFreeHandle;462,15817
+        REQ_DS_READ_STRIPE      reqDSReadStripe;463,15866
+        REQ_DS_WRITE_STRIPE     reqDSWriteStripe;464,15915
+        REQ_DS_READ_STRIPE_V    reqDSReadStripeV;465,15965
+        REQ_DS_WRITE_STRIPE_V   reqDSWriteStripeV;466,16015
+        REQ_DS_GET_LENGTH       reqDSGetLength;467,16066
+        REQ_DS_GET_DISK_USAGE   reqDSGetDiskUsage;468,16114
+        REQ_DS_GET_STATS        reqDSGetstats;469,16165
+        REQ_MDS_PING            reqMDSPing;470,16212
+        REQ_MDS_ALLOC_HANDLE    reqMDSAllocHandle;471,16256
+        REQ_MDS_FREE_HANDLE     reqMDSFreeHandle;472,16307
+        REQ_MDS_READDIR         reqMDSReaddir;473,16357
+        REQ_MDS_CREATE_DIRENT   reqMDSCreateDirent;474,16404
+        REQ_MDS_DELETE_DIRENT   reqMDSDeleteDirent;475,16456
+        REQ_MDS_LOOK_UP         reqMDSLookUp;476,16508
+        REQ_MDS_GET_ATTR        reqMDSGetAttr;477,16554
+        REQ_MDS_SET_ATTR        reqMDSSetAttr;478,16601
+        REQ_MDS_GET_EXTENT_SIZE reqMDSGetExtentSize;479,16648
+        REQ_MDS_GET_CONFIG      reqMDSGetConfig;480,16701
+        REQ_MDS_FS_CONF_CHANGED reqMDSFsConfChanged;481,16750
+        REQ_MDS_LOGIN_PHASE1    reqMDSLoginPhase1;482,16803
+        REQ_MDS_LOGIN_PHASE2    reqMDSLoginPhase2;483,16854
+    }req;req484,16905
+}HFS_SERVER_REQ,*PHFS_SERVER_REQ;PHFS_SERVER_REQ485,16915
+typedef struct __HFS_SERVER_RESP 489,16952
+    HFS_PROTO_HEADER hdr;490,16987
+        RESP_DS_PING            respDSPing;492,17025
+        RESP_DS_ALLOC_HANDLE    respDSAllocHandle;493,17069
+        RESP_DS_FREE_HANDLE     respDSFreeHandle;494,17120
+        RESP_DS_READ_STRIPE     respDSReadStripe;495,17170
+        RESP_DS_WRITE_STRIPE    respDSWriteStripe;496,17220
+        RESP_DS_READ_STRIPE_V   respDSReadStripeV;497,17271
+        RESP_DS_WRITE_STRIPE_V  respDSWriteStripeV;498,17322
+        RESP_DS_GET_LENGTH      respDSGetLength;499,17374
+        RESP_DS_GET_DISK_USAGE  respDSGetDiskUsage;500,17423
+        RESP_DS_GET_STATS       respDSGetstats;501,17475
+        RESP_MDS_PING           respMDSPing;502,17523
+        RESP_MDS_ALLOC_HANDLE   respMDSAllocHandle;503,17568
+        RESP_MDS_FREE_HANDLE    respMDSFreeHandle;504,17620
+        RESP_MDS_READDIR        respMDSReaddir;505,17671
+        RESP_MDS_CREATE_DIRENT  respMDSCreateDirent;506,17719
+        RESP_MDS_DELETE_DIRENT  respMDSDeleteDirent;507,17772
+        RESP_MDS_LOOK_UP        respMDSLookUp;508,17825
+        RESP_MDS_GET_ATTR       respMDSGetAttr;509,17872
+        RESP_MDS_SET_ATTR       respMDSSetAttr;510,17920
+        RESP_MDS_GET_EXTENT_SIZE    respMDSGetExtentSize;511,17968
+        RESP_MDS_GET_CONFIG         respMDSGetConfig;512,18026
+        RESP_MDS_FS_CONF_CHANGED    respMDSFsConfChanged;513,18080
+        RESP_MDS_LOGIN_PHASE1       respMDSLoginPhase1;514,18138
+        RESP_MDS_LOGIN_PHASE2       respMDSLoginPhase2;515,18194
+    }resp;resp516,18250
+}HFS_SERVER_RESP,*PHFS_SERVER_RESP;PHFS_SERVER_RESP517,18261
+#define HFS_PROTO_ERROR_MASK 520,18327
+#define HFS_PROTO_STATUS_SUCCESS 521,18384
+#define HFS_PROTO_STATUS_NOT_IMPLEMENTED 522,18434
+#define HFS_PROTO_STATUS_FATAL_ERROR 523,18509
+#define HFS_PROTO_ERROR_BAD_PATH 524,18584
+#define HFS_PROTO_AUTHENTICATION_FAILURE 525,18659
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/list.h,1103
+#define _LINUX_LIST_H10,128
+#define prefetch(12,151
+#define LIST_POISON1 14,172
+#define LIST_POISON2 15,216
+struct list_head 27,601
+    struct list_head *next,next28,620
+    struct list_head *next, *prev;prev28,620
+#define LIST_HEAD_INIT(31,659
+#define LIST_HEAD(33,710
+#define INIT_LIST_HEAD(36,786
+static inline void __list_add(46,1048
+static inline void hfs_list_add(64,1475
+static inline void list_add_tail(77,1804
+static inline void __list_del(90,2113
+static inline void list_del(102,2440
+static inline void list_del_init(114,2725
+static inline void list_move(125,3002
+static inline void list_move_tail(136,3311
+static inline int list_empty(147,3577
+static inline int list_empty_careful(164,4084
+static inline void __list_splice(170,4248
+static inline void list_splice(189,4685
+static inline void list_splice_init(202,5032
+#define container_of(211,5241
+#define list_entry(220,5567
+#define list_for_each(235,6027
+#define list_for_each_prev(243,6289
+#define list_for_each_safe(253,6663
+#define list_for_each_entry(263,7019
+#define list_for_each_entry_reverse(276,7606
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_proto_buff.h,29
+#define INIT_HEADER(42,1535
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_io_lib.h,75
+#define HERCULES_IO_LIB_H_23,792
+#define MAX_EXTENT_FILE_NAME_LEN 29,900
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_errors.h,1110
+#define __HERCULES_ERRORS__21,745
+#define HFS_STATUS_SUCCESS 23,776
+#define HFS_ERROR_MASK 25,811
+#define HFS_MASK_QUEUING 26,851
+#define HFS_MASK_DB 27,891
+#define HFS_MASK_IO 28,931
+#define HFS_MASK_HDL_MNGR 29,971
+#define HFS_MASK_CONFIG 30,1011
+#define HFS_STATUS_PRE_CONDITION_FAILS 33,1114
+#define HFS_STATUS_QUEUE_NOT_STARTED 36,1189
+#define HFS_STATUS_DB_ERROR 39,1290
+#define HFS_STATUS_DB_INIT_FAILED 40,1368
+#define HFS_STATUS_DB_FS_NOT_FOUND 41,1446
+#define HFS_STATUS_DB_FS_BUSY 42,1524
+#define HFS_STATUS_DB_NO_SUCH_RECORD 43,1602
+#define HFS_STATUS_IO_ERROR 46,1698
+#define HFS_INVALID_HANDLE_ERROR 47,1776
+#define HFS_INVALID_STRIPE_ERROR 48,1854
+#define HFS_LOW_RESOURCES 49,1932
+#define HFS_TRANSMISSION_FAILED 50,2010
+#define HFS_STATUS_CONFIG_ERROR 54,2150
+#define HFS_STATUS_LOCKING_ERROR 57,2309
+#define HFS_INTERNAL_ERROR 58,2373
+#define HFS_STATUS_OUT_OF_MEMORY 59,2437
+#define HFS_HOST_OS_ERROR 60,2501
+#define HFS_PROTOCOL_ERROR 61,2565
+#define HFS_CONNECTION_DROPPED 62,2629
+#define HFS_CLIENT_DISCONNECTED 63,2693
+#define HFS_STATUS_AUTH_FAILED 64,2757
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_common.h,147
+#define __HERCULES_COMMON__21,723
+#define _BSD_SOURCE23,752
+#define _GNU_SOURCE24,772
+    #define __USE_GNU56,1428
+#define HFS_UNUSED(91,2126
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/logger_common.h,551
+#define __LOGGER_COMMON_23,752
+#define  DO_DEBUG_LOG 26,797
+#define LOG_MASK_LOG_ALL 29,884
+#define STRINGIFY(31,921
+#define TOSTR(32,945
+#define __FNLN__ 33,977
+#define    LOG_ERROR 41,1122
+#define    LOG_WARN 42,1150
+#define    LOG_INFO 43,1178
+#define    LOG_ENTRY 44,1206
+#define HFS_LOG_ERROR(46,1235
+#define HFS_LOG_WARN(49,1385
+#define HFS_LOG_INFO(54,1551
+#define HFS_ENTRY(56,1698
+#define HFS_LEAVE(58,1836
+    #define NOP61,1980
+    #define HFS_LOG_INFO(62,1996
+    #define HFS_ENTRY(63,2040
+    #define HFS_LEAVE(64,2084
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_db_lib.h,1665
+#define _HERCULES_DB_H_21,719
+#define IN26,789
+#define OUT27,800
+#define HFS_DB_HOST_NAME 31,867
+#define HFS_MAX_QUERY 32,895
+#define FMT_QUERY_CHECK_FS 36,959
+#define FMT_QUERY_DROP_DATABASE 37,995
+#define FMT_QUERY_CREATE_FS 38,1046
+#define FMT_QUERY_CREATE_INODE_TABLE 39,1095
+#define FMT_QUERY_CREATE_DATA_TABLE 53,1566
+#define FMT_QUERY_CREATE_FREE_HANDLE_TABLE 59,1858
+#define FMT_QUERY_CREATE_FILE_SYSTEM_CONFIGURATION 62,1986
+#define FMT_QUERY_CREATE_NAME_SPACE 72,2477
+#define FMT_QUERY_CREATE_GEN_ID_TABLE 80,2845
+#define FMT_QUERY_CREATE_STRIPE_SIZE_TABLE 83,2969
+#define FMT_QUERY_CREATE_USER_TABLE 86,3088
+#define FMT_QUERY_GET_ENCRYPTED_PASS 91,3314
+#define FMT_QUERY_MDS_READDIR 96,3497
+#define FMT_QUERY_MDS_LOOKUP 99,3652
+#define FMT_QUERY_MDS_GET_ATTR 102,3816
+#define FMT_QUERY_MDS_SET_ATTR 106,4032
+#define FMT_QUERY_ADD_INODE 121,4714
+#define FMT_QUERY_MDS_GET_DATA_HANDLES 125,4944
+#define FMT_QUERY_MDS_SET_DATA_HANDLES 130,5078
+#define FMT_QUERY_MDS_GET_EXTENT_SIZE 134,5242
+#define FMT_QUERY_MDS_GET_CONFIG 138,5337
+#define FMT_QUERY_ADD_DIRENT 149,6033
+#define FMT_QUERY_ADD_SRVR_CONFIG 154,6288
+#define FMT_QUERY_ADD_STRIPE_SIZE 159,6577
+#define FMT_QUERY_ADD_USER 164,6753
+#define FMT_QUERY_GET_MAX_META_HANDLE 169,6952
+#define FMT_QUERY_REMOVE_FREE_META_HANDLE 172,7048
+#define FMT_QUERY_ADD_FREE_META_HANDLE 175,7176
+#define FMT_QUERY_GET_MIN_FREE_META_HANDLE 178,7305
+#define BUILD_QUERY(182,7478
+typedef struct __HFS_DB_CTX 187,7667
+    MYSQL *pConn;pConn189,7750
+    char filesystemName[filesystemName190,7768
+} HFS_DB_CTX, *PHFS_DB_CTX;PHFS_DB_CTX191,7819
+#define HFS_CRYPT_SALT 240,9579
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/hercules_hdl_mngr.h,273
+#define SRVHDLMNGR_H_21,741
+typedef struct __DS_HANDLE_MGR_CTX_{__DS_HANDLE_MGR_CTX_23,766
+}DS_HANDLE_MGR_CTX,*PDS_HANDLE_MGR_CTX;PDS_HANDLE_MGR_CTX24,804
+typedef struct __MDS_HANDLE_MGR_CTX 26,847
+}MDS_HANDLE_MGR_CTX,*PMDS_HANDLE_MGR_CTX;PMDS_HANDLE_MGR_CTX27,886
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/server_common.h,362
+#define DS_SERVER_HANDLE_FILE 20,714
+#define MDS_SERVER_FS_UPDATE_SEM 21,767
+typedef struct _HFS_SEVER_OPTIONS 25,909
+    char *serverConfigFilePath;serverConfigFilePath26,946
+    int  logMask;27,979
+    int  maxClientSupported;28,998
+    int  serverID;29,1028
+    int  role;30,1048
+}HFS_SERVER_OPTIONS,*PHFS_SERVER_OPTIONS;PHFS_SERVER_OPTIONS31,1064
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/common/inc/client_common.h,440
+typedef struct _HFS_CLIENT_OPTIONS 22,810
+    char *fsConfigFilePath;fsConfigFilePath23,848
+    char *clientLogFile;clientLogFile24,877
+    char *mountPoint;mountPoint25,903
+    char *rootMDSAddr;rootMDSAddr26,926
+    char *rootMDSPort;rootMDSPort27,950
+    int  logMask;28,974
+    int  maxServersSupported;29,993
+    int  maxMdsServersSupported;30,1024
+} HFS_CLIENT_OPTIONS, *PHFS_CLIENT_OPTIONS;PHFS_CLIENT_OPTIONS31,1058
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/logger/logger.c,51
+static int errorLogMask;23,792
+loggerInit(27,834
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/db/hercules_db_lib.c,635
+#define USER_NAME 24,806
+#define PASSWORD 25,831
+#define CONN_READ_GRP 26,859
+#define ONE 27,890
+__executeQuery(31,919
+dbFileSystemExist(47,1259
+dbOpenConnection(66,1670
+#define BUILD_AND_EXECUTE_QUERY(122,3120
+dbFormatMDS(130,3388
+dbCloseConnection 352,10092
+dbGetError 361,10278
+HFS_STATUS dbGetDirListing(369,10483
+dbLookUp(443,12449
+HFS_STATUS dbGetAttr(487,13450
+dbSetAttr(571,15743
+HFS_STATUS dbAllocMetaDataHandle(651,18171
+HFS_STATUS dbFreeHandle(755,21070
+HFS_STATUS dbAddDirent(761,21225
+HFS_STATUS dbGetEncryptedNonce(781,21751
+HFS_STATUS dbGetExtentSize(846,23430
+HFS_STATUS dbGetSrvrListing(881,24240
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/hercules_outbound.c,27
+outBoundProcessing(28,960
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/hercules_server.c,334
+getHFSServer(28,933
+getHFSServerOptions(36,1095
+getPPHFSFSCtx(44,1252
+getHFSFSCtx(51,1346
+void printUsage(57,1477
+#define MAX_CLIENTS_SUPPORTED 63,1576
+parse_cmd_line_options(65,1622
+hfsBuildServer(106,2839
+hfsWaitForFSUpdates(184,5760
+hfsBuildServerKernel(248,8192
+hfsServerMarkLastOperation(349,11871
+int main(456,14216
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/hercules_mds_cmds.c,595
+hfsService_REQ_MDS_PING(29,883
+hfsService_REQ_MDS_ALLOC_HANDLE(56,1769
+hfsService_REQ_MDS_FREE_HANDLE(98,3172
+hfsService_REQ_MDS_READDIR(127,3953
+hfsService_REQ_MDS_CREATE_DIRENT(163,5287
+hfsService_REQ_MDS_DELETE_DIRENT(190,6172
+hfsService_REQ_MDS_LOOK_UP(215,6884
+hfsService_REQ_MDS_GET_ATTR(243,7985
+hfsService_REQ_MDS_SET_ATTR(268,8868
+hfsService_REQ_MDS_GET_EXTENT_SIZE(294,9808
+hfsService_REQ_MDS_GET_CONFIG(325,10766
+hfsService_REQ_MDS_LOGIN_PHASE1(360,11975
+hfsService_REQ_MDS_LOGIN_PHASE2(392,13235
+#define SERVICE_REQUEST(439,14925
+mdsPendingCommandProcessing(449,15297
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/hercules_inbound.c,371
+#define MAX_CONNECT_BACKLOG 24,800
+#define SOCKET_EVENT_MASK 25,831
+hfsSetupConnListener(29,879
+hfsGetFreeClientConnection(98,3134
+hfsBuildPollPool(132,4295
+hfsSocketAcceptConnection(193,6602
+#define RESET_CONNECTION_STATE_MACHINE(230,7946
+int IsValidReqHeader(238,8359
+hfsPumpBytesToConnSM(243,8431
+hfsSocketProcessCommands(394,14357
+hfsInboundLoop(451,15997
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/hercules_ds_cmds.c,61
+hfsProcessDSCMD(32,901
+dsPendingCommandProcessing(137,5324
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/server/inc/hercules_server.h,2492
+#define MAX_HOST_NAME 24,756
+#define HFS_SERVER_INBOUND_THREAD_NR 25,816
+typedef struct __HERCULES_SERVER_CONFIG 27,912
+    int                 role;28,954
+    char                hostName[hostName29,985
+    int                 maxClientsAllowed;30,1034
+    char               *configFilePath;configFilePath31,1077
+    HFS_SERVER_INFO     serverInfo;34,1180
+} HERCULES_SERVER_CONFIG, *PHERCULES_SERVER_CONFIG;PHERCULES_SERVER_CONFIG35,1216
+typedef enum _REQ_COMM_STAGE 38,1325
+    REQ_COM_STAGE_WAITING,39,1356
+    REQ_COM_STAGE_HEADER,40,1383
+    REQ_COM_STAGE_COMMAND,41,1409
+    REQ_COMM_STAGE_EXTENT,42,1436
+    REQ_COMM_STAGE_MAX43,1463
+} REQ_COMM_STAGE;44,1486
+typedef struct __HFS_CLIENT_CONN_CTX 46,1505
+    int                 used;47,1544
+    int                 PendingCommands;48,1574
+    int                 authenticated;51,1645
+    __u64               randomNonce;52,1684
+    char                userName[userName53,1721
+    HFS_PROTO_HEADER    bounceHdr;57,1828
+    REQ_COMM_STAGE      inStage;58,1863
+    int                 bytesReadOff;59,1896
+    int                 commandSize;60,1934
+    PHFS_QUEUE_ITEM     pQueueItem;63,2010
+} HFS_CLIENT_CONN_CTX, *PHFS_CLIENT_CONN_CTX;PHFS_CLIENT_CONN_CTX64,2046
+typedef struct __HERCULES_SRV_KERNEL 67,2150
+    PHFS_QUEUE_PROCESSOR    pQpendingCommands;68,2189
+    PHFS_QUEUE_PROCESSOR    pQOutBound;69,2236
+    pthread_t               thrFsUpdate;72,2314
+    int                     FsUpdateSem;73,2355
+    HFS_DB_CTX          hfsDbCtx;76,2418
+    HFS_MUTEX               serverMetaDataUpdateLock;79,2487
+    __u32                   lastOperation;82,2575
+    HFS_MUTEX               connectAcceptMutex;83,2618
+    int                     activeClients;84,2666
+    struct pollfd          *pPollFds;pPollFds85,2709
+    PHFS_CLIENT_CONN_CTX    pClientConnCtx;86,2747
+    struct sockaddr_in   addr;89,2838
+    int                  timeout;90,2869
+    int                  listeningPort;91,2903
+    int                  listeningFD;92,2943
+    int                  serverRunning;93,2981
+} HERCULES_SERVER_KERNEL, *PHERCULES_SERVER_KERNEL;PHERCULES_SERVER_KERNEL94,3021
+typedef struct __HERCULES_SERVER 97,3123
+    HERCULES_SERVER_CONFIG   config;98,3158
+    HERCULES_SERVER_KERNEL   kernel;99,3195
+} HERCULES_SERVER, *PHERCULES_SERVER;PHERCULES_SERVER100,3232
+#define RELEASE_SOCKET_IF_NO_PENDING(122,3991
+#define DEACTIVATE_SOCKET(134,4748
+#define ACTIVATE_SOCKET(152,5967
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/admin/updateFSConfig.c,13
+main(26,891
+
+/home/vmware/frzwrks/ParallelFSGitHub/hfs/src/admin/mkfs_hercules.c,214
+printUsage(25,820
+PHFS_SERVER_OPTIONS getHFSServerOptions(30,963
+PHFS_FS_CTX * getPPHFSFSCtx(36,1127
+getHFSFSCtx(42,1240
+parse_cmd_line_options(48,1301
+formatDS(97,2425
+formatMDS(163,4134
+int main(237,6332
